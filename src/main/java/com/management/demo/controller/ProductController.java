@@ -37,13 +37,13 @@ public class ProductController {
     }
     
 	private ResponseEntity saveProduct(@RequestBody Product product) {
-		Product saveProduct = productService.saveOrUpdate(product);
+		Product saveProduct = productService.saveProd(product);
 		return new ResponseEntity<>(saveProduct, HttpStatus.OK);
 	}
     
     
-    private Product update(@RequestBody Product product  ) {
-    	productService.saveOrUpdate(product);
+    private Product update(@RequestBody Product product ,long IdProduct ) {
+    	productService.update(product, IdProduct);
     	return product;
     }
     

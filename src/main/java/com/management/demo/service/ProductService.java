@@ -26,12 +26,12 @@ public class ProductService {
     	productRepository.deleteById(IdProduct);
     }
     
-    public Product saveOrUpdate(Product product) {
+    public Product saveProd(Product product) {
     	return this.productRepository.save(product);
     }
     
     public void update(Product product, long IdProduct) {
-    	productRepository.save(product);
+    	productRepository.updateProduct(product);
     }
     
 }
