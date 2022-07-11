@@ -24,12 +24,11 @@ import com.management.demo.service.ProductService;
 
 
 @RestController
-@CrossOrigin
 @RequestMapping(value = "/product")
 public class ProductController {
 	
     @Autowired
-    ProductService productService;	
+    private ProductService productService;	
     
     @GetMapping("/getAllProduct")
     private List<Product> getAllProduct(){

@@ -13,7 +13,7 @@ import com.management.demo.repository.UserRepository;
 public class UserService {
 	
     @Autowired
-     UserRepository userRepository;
+     private UserRepository userRepository;
     
     public List<User> getAllUser(){
     	return userRepository.findAll();

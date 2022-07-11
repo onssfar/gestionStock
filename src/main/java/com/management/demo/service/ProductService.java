@@ -12,7 +12,7 @@ import com.management.demo.repository.ProductRepository;
 public class ProductService {
 	
     @Autowired
-    ProductRepository productRepository;
+    private ProductRepository productRepository;
     
     public List<Product> getAllProduct(){
     	return productRepository.findAll();
@@ -33,5 +33,5 @@ public class ProductService {
     public void update(Product product, long IdProduct) {
     	productRepository.updateProduct(product);
     }
-    
+      
 }

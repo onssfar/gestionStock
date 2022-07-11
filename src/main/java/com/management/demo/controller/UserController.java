@@ -22,12 +22,11 @@ import com.management.demo.service.ProductService;
 import com.management.demo.service.UserService;
 
 @RestController
-@CrossOrigin
 @RequestMapping(value = "/user")
 public class UserController {
 	
     @Autowired
-    UserService userService;	
+    private UserService userService;	
     
     @GetMapping("/getAllUser")
     private List<User> getAllProduct(){
