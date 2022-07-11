@@ -19,11 +19,11 @@ import lombok.Setter;
 @AllArgsConstructor
 @Data
 
-public class product implements Serializable{
+public class Product implements Serializable{
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long idProduct;
+	private long idProduct;
 	
 	private int code;
 	
@@ -46,5 +46,7 @@ public class product implements Serializable{
 	private String category;
 	
 	private String description;
+	
+	
 
 }
