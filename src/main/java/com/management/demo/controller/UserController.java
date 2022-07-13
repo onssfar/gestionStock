@@ -22,37 +22,37 @@ import com.management.demo.service.ProductService;
 import com.management.demo.service.UserService;
 
 @RestController
-@RequestMapping(value = "/user")
+@RequestMapping(value = "/ManageUser")
 public class UserController {
-	
-    @Autowired
-    private UserService userService;	
-    
-    @GetMapping("/getAllUser")
-    private List<User> getAllProduct(){
-    	return userService.getAllUser();
-    }
-    
-    @GetMapping("/findUser/{idUser}")
-    private User getUser(@PathVariable("idUser")long IdUser) {
-    	return userService.getUserById(IdUser);
-    }
-    
-    @DeleteMapping("/deleteUser/{Userid}")
-    private void deleteUserById(@PathVariable ("Userid") long IdUser) {
-    	userService.deleteUser(IdUser);
-    }
-    
-    @PostMapping("/addUser")
-	private ResponseEntity AddUser(@RequestBody User user) {
-		User saveProduct = userService.saveUser(user);
-		return new ResponseEntity<>(saveProduct, HttpStatus.OK);
+
+	@Autowired
+	private UserService userService;
+
+	@GetMapping("/getAllUser")
+	public List<User> getAllProduct() {
+		return this.userService.getAllUsers();
 	}
-    
-    @PutMapping("/updateUser")
-    private User update(@RequestBody User user ,long IdUser ) {
-    	userService.updateUser(user ,IdUser);
-    	return user;
-    }
+
+	@GetMapping("/findUser/{idUser}")
+	public User getUser(@PathVariable("idUser") long IdUser) {
+		return this.userService.getUserById(IdUser);
+	}
+
+	@DeleteMapping("/deleteUser/{Userid}")
+	public void deleteUserById(@PathVariable("Userid") long IdUser) {
+		this.userService.deleteUser(IdUser);
+	}
+
+	@PostMapping("/addUser")
+	public ResponseEntity AddUser(@RequestBody User user) {
+		User userAdded = this.userService.saveUser(user);
+		return userAdded != null ? new ResponseEntity<>(userAdded, HttpStatus.OK)
+				: new ResponseEntity<>(userAdded, HttpStatus.INTERNAL_SERVER_ERROR);
+	}
+
+	@PutMapping("/updateUser")
+	public User update(@RequestBody User user) {
+		return this.userService.updateUser(user);
+	}
 
 }

@@ -10,28 +10,31 @@ import com.management.demo.repository.ProductRepository;
 
 @Service
 public class ProductService {
-	
-    @Autowired
-    private ProductRepository productRepository;
-    
-    public List<Product> getAllProduct(){
-    	return productRepository.findAll();
-    }
 
-    public Product getProductById(long IdProduct) {
-    	return productRepository.findById( IdProduct).get();
-    }
-    
-    public void delete(long IdProduct) {
-    	productRepository.deleteById(IdProduct);
-    }
-    
-    public Product saveProd(Product product) {
-    	return this.productRepository.save(product);
-    }
-    
-    public void update(Product product, long IdProduct) {
-    	productRepository.updateProduct(product);
-    }
-      
+	@Autowired
+	private ProductRepository productRepository;
+
+	public List<Product> getAllProducts() {
+		return this.productRepository.findAll();
+	}
+
+	public Product getProductById(long IdProduct) {
+		return this.productRepository.findById(IdProduct).get();
+	}
+
+	public void deleteProduct(long IdProduct) {
+		this.productRepository.deleteById(IdProduct);
+	}
+
+	public Product saveProduct(Product product) {
+		return this.productRepository.save(product);
+	}
+
+	public Product updateProduct(Product product) {
+		return this.productRepository.save(product);
+	}
+
+	public List<Product> findProductByProductName(String productName) {
+		return this.productRepository.findProductProductName(productName);
+	}
 }

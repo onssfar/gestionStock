@@ -15,24 +15,24 @@ public class UserService {
     @Autowired
      private UserRepository userRepository;
     
-    public List<User> getAllUser(){
-    	return userRepository.findAll();
+    public List<User> getAllUsers(){
+    	return this.userRepository.findAll();
     }
 
     public User getUserById(long IdUser) {
-    	return userRepository.findById(IdUser).get();
+    	return this.userRepository.findById(IdUser).get();
     }
     
     public void deleteUser(long IdUser) {
-    	userRepository.deleteById(IdUser);
+    	this.userRepository.deleteById(IdUser);
     }
     
     public User saveUser(User user) {
     	return this.userRepository.save(user);
     }
     
-    public void updateUser(User user, long IdUser) {
-    	userRepository.updateProduct(user);
+    public User updateUser(User user) {
+    	return this.userRepository.save(user);
     }
 
 }
