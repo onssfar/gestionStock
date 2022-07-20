@@ -2,11 +2,14 @@ package com.management.demo.entities;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -47,6 +50,8 @@ public class Product implements Serializable{
 	
 	private String description;
 	
-	
+	@ManyToMany
+	@JoinColumn(name = "idBill")
+	private List<Bill> bills;
 
 }
