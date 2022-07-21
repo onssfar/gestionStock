@@ -23,7 +23,7 @@ import lombok.Setter;
 @AllArgsConstructor
 @Data
 
-public class Bill implements Serializable{
+public class Bill implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -38,5 +38,37 @@ public class Bill implements Serializable{
 	@ManyToOne
 	@JoinColumn(name = "idUser")
 	private User user;
+
+	public Long getIdBill() {
+		return idBill;
+	}
+
+	public void setIdBill(Long idBill) {
+		this.idBill = idBill;
+	}
+
+	public Date getDeclarationDate() {
+		return declarationDate;
+	}
+
+	public void setDeclarationDate(Date declarationDate) {
+		this.declarationDate = declarationDate;
+	}
+
+	public List<Product> getProduts() {
+		return produts;
+	}
+
+	public void setProduts(List<Product> produts) {
+		this.produts = produts;
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
 
 }

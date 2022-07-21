@@ -1,6 +1,8 @@
 package com.management.demo.service;
 
+import java.util.Date;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -36,5 +38,11 @@ public class ProductService {
 
 	public List<Product> findProductByProductName(String productName) {
 		return this.productRepository.findProductProductName(productName);
+	}
+	
+	public List<Product> findExpirationProducts(){
+		return this.productRepository.findAll().stream()
+				.filter(product -> new Date().getTime() - product.getExpirationDate().getTime() <= 14)
+				.toList();
 	}
 }
