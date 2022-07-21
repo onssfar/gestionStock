@@ -30,6 +30,10 @@ public class Bill implements Serializable {
 	private Long idBill;
 
 	private Date declarationDate;
+	
+	@ManyToOne
+	@JoinColumn(name = "idClient")
+	private Client client;
 
 	@ManyToMany
 	@JoinColumn(name = "idProduct")
