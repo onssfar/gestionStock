@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.management.demo.entities.Product;
 import com.management.demo.service.ProductService;
 
+@CrossOrigin
 @RestController
 @RequestMapping(value = "/manageProduct")
 public class ProductController {
@@ -55,5 +56,10 @@ public class ProductController {
 	@GetMapping("/searchProductByProductName")
 	public List<Product> findProductsByProductName(String productName) {
 		return this.productService.findProductByProductName(productName);
+	}
+
+	@GetMapping("/findExpirationProducts")
+	public List<Product> findExpirationProducts() {
+		return this.productService.findExpirationProducts();
 	}
 }

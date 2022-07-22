@@ -8,6 +8,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Client {
@@ -22,9 +23,9 @@ public class Client {
 
 	private int tel;
 	
-	@OneToMany
+	@OneToOne
 	@JoinColumn(name = "idBill")
-	private List<Bill> bill;
+	private Bill bill;
 
 	public Long getIdClient() {
 		return idClient;

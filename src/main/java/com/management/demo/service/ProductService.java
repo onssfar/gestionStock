@@ -2,6 +2,7 @@ package com.management.demo.service;
 
 import java.util.Date;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,7 +43,7 @@ public class ProductService {
 	
 	public List<Product> findExpirationProducts(){
 		return this.productRepository.findAll().stream()
-				.filter(product -> new Date().getTime() - product.getExpirationDate().getTime() <= 14)
+				.filter(product -> TimeUnit.DAYS.convert(Math.abs(product.getExpirationDate().getTime() - new Date().getTime()), TimeUnit.MILLISECONDS) <= 14)
 				.toList();
 	}
 }

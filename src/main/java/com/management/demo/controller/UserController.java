@@ -21,6 +21,7 @@ import com.management.demo.entities.User;
 import com.management.demo.service.ProductService;
 import com.management.demo.service.UserService;
 
+@CrossOrigin
 @RestController
 @RequestMapping(value = "/ManageUser")
 public class UserController {
@@ -55,4 +56,8 @@ public class UserController {
 		return this.userService.updateUser(user);
 	}
 
+	@PostMapping("/login")
+	public User login(@RequestBody User user) {
+		return this.userService.findUserByUsernameAndPassword(user.getUsername(), user.getPassword());
+	}
 }

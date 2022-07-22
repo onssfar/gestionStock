@@ -35,4 +35,7 @@ public class UserService {
     	return this.userRepository.save(user);
     }
 
+    public User findUserByUsernameAndPassword(String username, String password) {
+    	return this.userRepository.findUserByUsernameAndPassword(username, password);
+    }
 }

@@ -11,6 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -31,7 +32,9 @@ public class Bill implements Serializable {
 
 	private Date declarationDate;
 	
-	@ManyToOne
+	private int quantity;
+
+	@OneToOne
 	@JoinColumn(name = "idClient")
 	private Client client;
 
@@ -73,6 +76,22 @@ public class Bill implements Serializable {
 
 	public void setUser(User user) {
 		this.user = user;
+	}
+
+	public Client getClient() {
+		return client;
+	}
+
+	public void setClient(Client client) {
+		this.client = client;
+	}
+
+	public int getQuantity() {
+		return quantity;
+	}
+
+	public void setQuantity(int quantity) {
+		this.quantity = quantity;
 	}
 
 }
